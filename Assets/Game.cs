@@ -120,6 +120,7 @@ public class Game : MonoBehaviour
     }
 
     void UpdateBoard(int x, int y) {
+        if (x < 0 || y < 0 || x >= 30 || y >= 16) return;
         if (board[y, x].open == false && board[y, x].flag == false) {
             board[y, x].open = true;
             Destroy(squares[y, x]);
@@ -142,6 +143,7 @@ public class Game : MonoBehaviour
     }
 
     void Flag(int x, int y) {
+        if (x < 0 || y < 0 || x >= 30 || y >= 16) return;
         if (board[y, x].open == false && board[y, x].flag == false && n_flags > 0)
         {
             board[y, x].flag = true;
